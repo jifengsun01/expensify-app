@@ -34,6 +34,21 @@ export const removeExpense = ({id}={}) => ({
     id
 })
 
+
+export const startRemoveExpense = ({id}={}) => {
+    return (dispatch) => {
+        // Return a promise to allow chaining or handling in the component
+        return database.ref(`expenses/${id}`).remove().then(() => {
+          // If removal is successful, dispatch the action to update the store
+          dispatch(removeExpense({ id }));
+        }).catch(error => {
+          // Handle error if removal fails (optional)
+          console.error('Error removing expense:', error);
+        });
+    };
+}
+
+
 // EDIT_EXPENSE
 export const editExpense = (id, updates) => ({
     type: 'EDIT_EXPENSE',
