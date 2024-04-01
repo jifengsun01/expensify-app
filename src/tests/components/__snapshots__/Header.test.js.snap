@@ -8,17 +8,16 @@ exports[`render header correctly 1`] = `
   <NavLink
     activeClassName="is-active"
     ariaCurrent="true"
-    exact={true}
-    to="/"
+    to="/dashboard"
   >
-     Home page 
+     Dashboard 
   </NavLink>
   <NavLink
     activeClassName="is-active"
     ariaCurrent="true"
     to="/create"
   >
-     Create expense page 
+     Create Expense 
   </NavLink>
   <button
     onClick={[Function]}
