@@ -10,16 +10,10 @@ import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import "react-dates/lib/css/_datepicker.css";
 import { firebase } from './firebase/firebase';
+import LoadingPage from "./components/LoadingPage";
 //import './playground/promises'
 
 const store = configureStore();
-
-//store.dispatch(addExpence({description:'Rent', amount: 109500}))
-//store.dispatch(setTextFilter('water'));
-
-// const state = store.getState();
-// const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
-// console.log(visibleExpenses);
 
 const jsx = (
     <Provider store={store}>
@@ -35,12 +29,8 @@ const renderApp = () => {
     }
 }
 
-ReactDOM.render(<p>loading...</p>, document.getElementById('app'));
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
-
-
-
-//store.dispatch(startRemoveExpense());
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
